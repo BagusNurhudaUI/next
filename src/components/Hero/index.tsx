@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Hero = () => {
@@ -9,33 +10,49 @@ const Hero = () => {
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div
-                className="wow fadeInUp mx-auto max-w-[800px] text-center"
-                data-wow-delay=".2s"
-              >
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  Free and Open-Source Next.js Template for Startup & SaaS
-                </h1>
-                <p className="dark:text-body-color-dark mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl">
-                  Startup is free Next.js template for startups and SaaS
-                  business websites comes with all the essential pages,
-                  components, and sections you need to launch a complete
-                  business website, built-with Next 13.x and Tailwind CSS.
-                </p>
-                <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  <Link
-                    href="https://nextjstemplates.com/templates/saas-starter-startup"
-                    className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                  >
-                    🔥 Get Pro
-                  </Link>
-                  <Link
-                    href="https://github.com/NextJSTemplates/startup-nextjs"
-                    className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
-                  >
-                    Star on GitHub
-                  </Link>
+            <div className="w-full px-2 md:px-10 flex flex-col md:flex-row">
+              <div className="md:w-3/5 px-4">
+                {/* Content */}
+                <div
+                  className="wow fadeInUp mx-auto max-w-[800px] text-center"
+                  data-wow-delay=".2s"
+                >
+                  <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
+                    Free and Open-Source Next.js Template for Startup & SaaS
+                  </h1>
+                  <p className="dark:text-body-color-dark mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl">
+                    Startup is a free Next.js template for startups and SaaS
+                    business websites that comes with all the essential pages,
+                    components, and sections you need to launch a complete
+                    business website, built with Next.js 13.x and Tailwind CSS.
+                  </p>
+                  <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+                    <Link
+                      href="https://nextjstemplates.com/templates/saas-starter-startup"
+                      className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    >
+                      🔥 Get Pro
+                    </Link>
+                    <Link
+                      href="https://github.com/NextJSTemplates/startup-nextjs"
+                      className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
+                    >
+                      Star on GitHub
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="md:w-2/5 px-4 ">
+                {/* Image */}
+                <div className="wow fadeInUp absolute bottom-0 right-0 relative mx-auto aspect-[2690/3689] max-w-[500px] max-h-[450px] lg:ml-20">
+                  <Image
+                    src="/images/hero/prof1.png"
+                    alt="hero-image"
+                    fill
+                    sizes="(max-width: 400px), (max-width: 768px), 1000px"
+                    className="drop-shadow-three mx-auto max-w-full dark:drop-shadow-none"
+                    style={{ display: "block", margin: "auto" }}
+                  />
                 </div>
               </div>
             </div>
