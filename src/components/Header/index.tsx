@@ -58,7 +58,7 @@ const Header = () => {
                   sticky ? "py-5 lg:py-2" : "py-8"
                 } `}
               >
-                <div className="flex items-center justify-center bg-primary rounded-full w-12 h-12 mx-3">
+                <div className="flex items-center bg-primary rounded-full w-12 h-12 mx-3">
                   <Image
                     src="/images/logo/header-prof.png"
                     alt="logo"
@@ -67,7 +67,7 @@ const Header = () => {
                     className="w-full  rounded-full"
                   />
                 </div>
-                <span className="font-bold text-2xl flex items-center">
+                <span className="font-bold text-xl md:text-2xl flex items-center">
                   Bagus Nurhuda
                 </span>
               </Link>
