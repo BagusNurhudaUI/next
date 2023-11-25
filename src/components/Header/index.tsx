@@ -29,6 +29,8 @@ const Header = () => {
   // submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
   const handleSubmenu = (index: any) => {
+    console.log({ index });
+
     if (openIndex === index) {
       setOpenIndex(-1);
     } else {
@@ -49,27 +51,25 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 xl:mr-12">
+            <div className="w-[60rem] lg:w-[30rem] max-w-full px-4 xl:mr-12">
               <Link
                 href="/"
-                className={`header-logo block w-full ${
+                className={`header-logo w-full flex min-h-[30px] ${
                   sticky ? "py-5 lg:py-2" : "py-8"
                 } `}
               >
-                <Image
-                  src="/images/logo/logo-2.svg"
-                  alt="logo"
-                  width={140}
-                  height={30}
-                  className="w-full dark:hidden"
-                />
-                <Image
-                  src="/images/logo/logo.svg"
-                  alt="logo"
-                  width={140}
-                  height={30}
-                  className="hidden w-full dark:block"
-                />
+                <div className="flex items-center justify-center bg-primary rounded-full w-12 h-12 mx-3">
+                  <Image
+                    src="/images/logo/header-prof.png"
+                    alt="logo"
+                    width={40}
+                    height={40}
+                    className="w-full  rounded-full"
+                  />
+                </div>
+                <span className="font-bold text-2xl flex items-center">
+                  Bagus Nurhuda
+                </span>
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">
@@ -110,6 +110,7 @@ const Header = () => {
                         {menuItem.path ? (
                           <Link
                             href={menuItem.path}
+                            onClick={navbarToggleHandler}
                             className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
                               usePathName === menuItem.path
                                 ? "text-primary dark:text-white"
@@ -145,6 +146,7 @@ const Header = () => {
                                 (submenuItem: any, index) => (
                                   <Link
                                     href={submenuItem?.path}
+                                    onClick={navbarToggleHandler}
                                     key={index}
                                     className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
                                   >
@@ -161,7 +163,7 @@ const Header = () => {
                 </nav>
               </div>
               <div className="flex items-center justify-end pr-16 lg:pr-0">
-                <Link
+                {/* <Link
                   href="/signin"
                   className="hidden px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white md:block"
                 >
@@ -172,7 +174,7 @@ const Header = () => {
                   className="ease-in-up shadow-btn hover:shadow-btn-hover hidden rounded-sm bg-primary px-8 py-3 text-base font-medium text-white transition duration-300 hover:bg-opacity-90 md:block md:px-9 lg:px-6 xl:px-9"
                 >
                   Sign Up
-                </Link>
+                </Link> */}
                 <div>
                   <ThemeToggler />
                 </div>

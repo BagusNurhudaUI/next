@@ -6,18 +6,18 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="dark:bg-gray-dark relative z-10 overflow-hidden bg-white pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+        className="dark:bg-gray-dark relative z-10 overflow-hidden bg-white md:pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-2 lg:px-10 flex flex-col md:flex-row">
+            <div className="w-full px-2 lg:px-[3.5rem] flex flex-col md:flex-row">
               <div className="md:w-3/5 px-4 flex flex-col justify-center items-center">
                 <div
                   className="wow fadeInUp mx-auto max-w-[800px] text-left md:text-center "
                   data-wow-delay=".2s"
                 >
                   <h1 className="mb-2 md:mb-5  text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
-                    Hi, I&apos;mBagus Nurhuda!
+                    Hi, I&apos;m Bagus Nurhuda!
                   </h1>
                   <p className="dark:text-body-color-dark mb-6 md:mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl">
                     I&apos;m a fresh graduate Computer Enginering from
@@ -26,18 +26,18 @@ const Hero = () => {
                     with a strong foundation in programming, database
                     management, and system design analysis.
                   </p>
-                  <div className="md:flex flex-col items-left md:justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+                  <div className="md:flex flex-col items-left mb-4 md:justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                     <Link
                       href="https://drive.google.com/file/d/19D7LqtDR9Mcr7C0e2NrN1R4vPmEQsD-D/view"
                       className="rounded-sm bg-primary px-6 py-3 md:px-8 md:py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                     >
-                      🔥 Download My CV
+                      Download My CV
                     </Link>
                   </div>
                 </div>
               </div>
               <div className="md:w-2/5 px-0 md:px-4 ">
-                <div className="wow fadeInUp relative mr-0 md:mr-auto mx-auto aspect-[2690/3689] max-w-[500px] max-h-[450px]">
+                <div className="wow fadeInUp right-0 relative max-w-[300px] mr-0 md:mr-auto mx-auto aspect-[2690/3689] md:max-w-[500px] md:max-h-[450px]">
                   <Image
                     src="/images/hero/prof1.png"
                     alt="hero-image"
