@@ -129,7 +129,10 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
                       );
                     } else if (content.type === "image") {
                       return (
-                        <div className="mb-10 w-full overflow-hidden rounded">
+                        <div
+                          key={index}
+                          className="mb-10 w-full overflow-hidden rounded"
+                        >
                           <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
                             <Image
                               src={content.value}
@@ -142,13 +145,19 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
                       );
                     } else if (content.type === "header") {
                       return (
-                        <h3 className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight">
+                        <h3
+                          key={index}
+                          className="font-xl mb-10 font-bold leading-tight text-black dark:text-white sm:text-2xl sm:leading-tight lg:text-xl lg:leading-tight xl:text-2xl xl:leading-tight"
+                        >
                           {content.value}
                         </h3>
                       );
                     } else if (content.type === "list") {
                       return (
-                        <ul className="mb-10 list-inside list-disc text-body-color">
+                        <ul
+                          key={index}
+                          className="mb-10 list-inside list-disc text-body-color"
+                        >
                           <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
                             Consectetur adipiscing elit in voluptate velit.
                           </li>
@@ -166,7 +175,10 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
                       );
                     } else if (content.type === "list") {
                       return (
-                        <div className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9">
+                        <div
+                          key={index}
+                          className="relative z-10 mb-10 overflow-hidden rounded-md bg-primary bg-opacity-10 p-8 md:p-9 lg:p-8 xl:p-9"
+                        >
                           <p className="text-center text-base font-medium italic text-body-color">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod incididunt utionals labore et
