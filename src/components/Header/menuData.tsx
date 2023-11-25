@@ -32,6 +32,12 @@ const menuData: Menu[] = [
     submenu: [
       {
         id: 31,
+        title: "All Experience",
+        path: "/experience",
+        newTab: false,
+      },
+      {
+        id: 32,
         title: "Dagangan",
         path: "/experience/dagangan",
         newTab: false,
@@ -43,6 +49,12 @@ const menuData: Menu[] = [
     title: "Projects",
     newTab: false,
     submenu: [
+      {
+        id: 40,
+        title: "All Project",
+        path: "/project",
+        newTab: false,
+      },
       {
         id: 41,
         title: "GME Monitoring",

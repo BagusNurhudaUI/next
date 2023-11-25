@@ -10,16 +10,11 @@ const Contact = () => {
   });
 
   const handleChange = (e: any) => {
-    console.log(e.target.name);
-
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
-    // Log the form data to the console (replace this with your actual submission logic)
-    console.log("Form Data:", formData);
 
     try {
       const response = await fetch("/api/send-email", {
@@ -31,13 +26,7 @@ const Contact = () => {
       });
 
       const data = await response.json();
-      console.log(data.message);
-
-      // Optional: You can clear the form fields after submission
-      // setFormData({ name: '', email: '', message: '' });
-
-      // Optional: Display a success message to the user
-      alert("Form submitted successfully!");
+      alert(data?.message);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
