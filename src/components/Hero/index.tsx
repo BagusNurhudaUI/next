@@ -17,7 +17,7 @@ const Hero = () => {
                   data-wow-delay=".2s"
                 >
                   <h1 className="mb-2 md:mb-5  text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
-                    Hi, I&apos;m Bagus Nurhuda!
+                    Hi, I&apos;m Bagus Nurhuda
                   </h1>
                   <p className="dark:text-body-color-dark mb-6 md:mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl">
                     I&apos;m a fresh graduate Computer Enginering from
