@@ -12,20 +12,19 @@ const Hero = () => {
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-2 lg:px-10 flex flex-col md:flex-row">
               <div className="md:w-3/5 px-4 flex flex-col justify-center items-center">
-                {/* Content */}
                 <div
                   className="wow fadeInUp mx-auto max-w-[800px] text-left md:text-center "
                   data-wow-delay=".2s"
                 >
                   <h1 className="mb-2 md:mb-5  text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-4xl md:leading-tight">
-                    Hi, I'm Bagus Nurhuda!
+                    Hi, I&apos;mBagus Nurhuda!
                   </h1>
                   <p className="dark:text-body-color-dark mb-6 md:mb-12 text-base !leading-relaxed text-body-color sm:text-lg md:text-xl">
-                    I'm a fresh graduate Computer Enginering from University of
-                    Indonesia. I'm passionate about backend development and
-                    software development with 2 years experience with a strong
-                    foundation in programming, database management, and system
-                    design analysis.
+                    I&apos;m a fresh graduate Computer Enginering from
+                    University of Indonesia. I&apos;m passionate about backend
+                    development and software development with 2 years experience
+                    with a strong foundation in programming, database
+                    management, and system design analysis.
                   </p>
                   <div className="md:flex flex-col items-left md:justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                     <Link
@@ -38,7 +37,6 @@ const Hero = () => {
                 </div>
               </div>
               <div className="md:w-2/5 px-0 md:px-4 ">
-                {/* Image */}
                 <div className="wow fadeInUp relative mr-0 md:mr-auto mx-auto aspect-[2690/3689] max-w-[500px] max-h-[450px]">
                   <Image
                     src="/images/hero/prof1.png"
