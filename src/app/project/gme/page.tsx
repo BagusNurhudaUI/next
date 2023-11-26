@@ -14,7 +14,7 @@ const GmePage = () => {
   return (
     <>
       <BreadcrumbCustom
-        pageName="GME Monitoringr"
+        pageName="GME Monitoring"
         beforepageName={[
           {
             href: "/",
