@@ -20,8 +20,8 @@ const BreadcrumbCustom = ({
             <div className="w-full px-4 md:w-4/12 lg:w-5/12">
               <div className="text-end">
                 <ul className="flex items-center md:justify-end">
-                  {beforepageName.map((beforepage) => (
-                    <li className="flex items-center">
+                  {beforepageName.map((beforepage, index) => (
+                    <li className="flex items-center" key={index}>
                       <Link
                         href={beforepage.href}
                         className="pr-1 text-base font-medium text-body-color hover:text-primary"
