@@ -25,15 +25,23 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       <Features />
-      <Carousel />
+      <Carousel
+        images={["/images/akur.png", "/images/gme.png", "/images/kasbaik.png"]}
+      />
       {/* <Video /> */}
       {/* <Brands />
       <AboutSectionOne />
       <AboutSectionTwo /> */}
-      <Testimonials />
-      <Pricing />
+      {/* <Testimonials /> */}
+      {/* <Pricing /> */}
       <Blog />
-      <SectionTitle title="Contact Me" paragraph="" center mb="0" mt="7rem" />
+      <SectionTitle
+        title="Contact Me"
+        paragraph="Feel free to contact me for further discussion"
+        center
+        mb="0"
+        mt="7rem"
+      />
       <Contact />
     </>
   );

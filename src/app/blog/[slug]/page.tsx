@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Metadata } from "next";
 import blogData from "@/components/Blog/blogData";
 import { useEffect, useState } from "react";
+import { Blog } from "@/types/blog";
+import BreadcrumbCustom from "@/components/Common/BreadcrumbCustom";
 
 // export const metadata: Metadata = {
 //   title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
@@ -13,8 +15,12 @@ import { useEffect, useState } from "react";
 //   // other metadata
 // };
 
-const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
-  const [data, setData] = useState([]);
+export default function BlogDetailsPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const [data, setData] = useState<Blog>();
 
   useEffect(() => {
     const matchingBlog = blogData.find(
@@ -22,13 +28,17 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
     );
 
     if (matchingBlog) {
-      console.log("BENARRR");
-      setData(matchingBlog.content);
+      setData(matchingBlog);
     }
   }, [params.slug]);
   return (
     <>
       <section className="pb-[120px] pt-[150px]">
+        <BreadcrumbCustom
+          pageName={decodeURIComponent(params.slug)}
+          description="Welcome to my blog"
+          pt="0px"
+        />
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4 lg:w-8/12">
@@ -41,16 +51,16 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
                     <div className="mb-5 mr-10 flex items-center">
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
-                          <Image
-                            src="/images/blog/author-02.png"
-                            alt="author"
-                            fill
-                          />
+                          {data?.author?.image ? (
+                            <Image src={data.author.image} alt="author" fill />
+                          ) : // You can provide a default image source or render nothing here.
+                          // Example: <Image src="/images/default-author.png" alt="Default Author" fill />
+                          null}
                         </div>
                       </div>
                       <div className="w-full">
                         <span className="mb-1 text-base font-medium text-body-color">
-                          By <span>Musharof Chy</span>
+                          By <span>{data?.author.name}</span>
                         </span>
                       </div>
                     </div>
@@ -74,9 +84,9 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
                             <path d="M13.2637 3.3697H7.64754V2.58105C8.19721 2.43765 8.62738 1.91189 8.62738 1.31442C8.62738 0.597464 8.02992 0 7.28906 0C6.54821 0 5.95074 0.597464 5.95074 1.31442C5.95074 1.91189 6.35702 2.41376 6.93058 2.58105V3.3697H1.31442C0.597464 3.3697 0 3.96716 0 4.68412V13.2637C0 13.9807 0.597464 14.5781 1.31442 14.5781H13.2637C13.9807 14.5781 14.5781 13.9807 14.5781 13.2637V4.68412C14.5781 3.96716 13.9807 3.3697 13.2637 3.3697ZM6.6677 1.31442C6.6677 0.979841 6.93058 0.716957 7.28906 0.716957C7.62364 0.716957 7.91042 0.979841 7.91042 1.31442C7.91042 1.649 7.64754 1.91189 7.28906 1.91189C6.95448 1.91189 6.6677 1.6251 6.6677 1.31442ZM1.31442 4.08665H13.2637C13.5983 4.08665 13.8612 4.34954 13.8612 4.68412V6.45261H0.716957V4.68412C0.716957 4.34954 0.979841 4.08665 1.31442 4.08665ZM13.2637 13.8612H1.31442C0.979841 13.8612 0.716957 13.5983 0.716957 13.2637V7.16957H13.8612V13.2637C13.8612 13.5983 13.5983 13.8612 13.2637 13.8612Z" />
                           </svg>
                         </span>
-                        12 Jan 2024
+                        {data?.publishDate}
                       </p>
-                      <p className="mr-5 flex items-center text-base font-medium text-body-color">
+                      {/* <p className="mr-5 flex items-center text-base font-medium text-body-color">
                         <span className="mr-3">
                           <svg
                             width="18"
@@ -90,7 +100,7 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
                           </svg>
                         </span>
                         50
-                      </p>
+                      </p> */}
                       <p className="flex items-center text-base font-medium text-body-color">
                         <span className="mr-3">
                           <svg
@@ -108,16 +118,19 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
                     </div>
                   </div>
                   <div className="mb-5">
-                    <a
-                      href="#0"
-                      className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white"
-                    >
-                      Design
-                    </a>
+                    {data?.tags.map((tag, index) => (
+                      <a
+                        key={index}
+                        href="#0"
+                        className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white"
+                      >
+                        {tag}
+                      </a>
+                    ))}
                   </div>
                 </div>
                 <div>
-                  {data?.map((content: any, index: any) => {
+                  {data?.content?.map((content: any, index: any) => {
                     if (content.type === "text") {
                       return (
                         <p
@@ -173,7 +186,7 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
                           </li>
                         </ul>
                       );
-                    } else if (content.type === "list") {
+                    } else if (content.type === "quotes") {
                       return (
                         <div
                           key={index}
@@ -335,20 +348,16 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
                     }
                   })}
 
-                  <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
-                    consectetur adipiscing elit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    mattis vulputate cupidatat.
-                  </p>
                   <div className="items-center justify-between sm:flex">
                     <div className="mb-5">
                       <h4 className="mb-3 text-sm font-medium text-body-color">
                         Popular Tags :
                       </h4>
+
                       <div className="flex items-center">
-                        <TagButton text="Design" />
-                        <TagButton text="Development" />
-                        <TagButton text="Info" />
+                        {data?.tags.map((tag, index) => (
+                          <TagButton key={index} text={`${tag}`} />
+                        ))}
                       </div>
                     </div>
                     <div className="mb-5">
@@ -368,6 +377,6 @@ const BlogDetailsPage = ({ params }: { params: { slug: string } }) => {
       </section>
     </>
   );
-};
+}
 
-export default BlogDetailsPage;
+// export default BlogDetailsPage;
