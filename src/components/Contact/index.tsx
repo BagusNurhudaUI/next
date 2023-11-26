@@ -25,6 +25,16 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
+      // const response = await fetch("/api/hello", {
+      //   method: "GET",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   // body: JSON.stringify(formData),
+      // });
+
+      // console.log({ response });
+
       const data = await response.json();
       alert(data?.message);
     } catch (error) {

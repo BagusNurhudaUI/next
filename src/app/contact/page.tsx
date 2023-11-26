@@ -2,11 +2,18 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import Contact from "@/components/Contact";
 
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Contact | Bagus Nurhuda",
   description: "Contact | Bagus Nurhuda",
   // other metadata
+};
+
+// LoadingFallback component
+const LoadingFallback = () => {
+  console.log("loading");
+  return <p>Loading feed...</p>;
 };
 
 const ContactPage = () => {
@@ -17,7 +24,9 @@ const ContactPage = () => {
         description="Feel free to contact me by submitting the form below and I will get back to you as soon as possible"
       />
 
-      <Contact />
+      <Suspense fallback={<LoadingFallback />}>
+        <Contact />
+      </Suspense>
     </>
   );
 };

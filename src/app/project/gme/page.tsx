@@ -1,4 +1,5 @@
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import BreadcrumbCustom from "@/components/Common/BreadcrumbCustom";
 import Contact from "@/components/Contact";
 
 import { Metadata } from "next";
@@ -9,17 +10,25 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-const ContactPage = () => {
+const GmePage = () => {
   return (
     <>
-      <Breadcrumb
-        pageName="Contact Page"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+      <BreadcrumbCustom
+        pageName="GME Monitoringr"
+        beforepageName={[
+          {
+            href: "/",
+            name: "Home",
+          },
+          {
+            href: "/project",
+            name: "Project",
+          },
+        ]}
       />
-
       <Contact />
     </>
   );
 };
 
-export default ContactPage;
+export default GmePage;

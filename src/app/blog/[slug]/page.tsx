@@ -36,7 +36,16 @@ export default function BlogDetailsPage({
       <section className="pb-[120px] pt-[150px]">
         <BreadcrumbCustom
           pageName={decodeURIComponent(params.slug)}
-          description="Welcome to my blog"
+          beforepageName={[
+            {
+              href: "/",
+              name: "Home",
+            },
+            {
+              href: "/blog",
+              name: "Blog",
+            },
+          ]}
           pt="0px"
         />
         <div className="container">

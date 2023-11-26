@@ -1,21 +1,31 @@
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import BreadcrumbCustom from "@/components/Common/BreadcrumbCustom";
 
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Page | Free Next.js Template for Startup and SaaS",
-  description: "This is About Page for Startup Nextjs Template",
+  title: "Dagangan | Bagus Nurhuda",
+  description: "Dagangan | Bagus Nurhuda",
   // other metadata
 };
 
-const AboutPage = () => {
+const Dagangan = () => {
   return (
     <>
-      <Breadcrumb
-        pageName="About Page"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+      <BreadcrumbCustom
+        pageName="Dagangan"
+        beforepageName={[
+          {
+            href: "/",
+            name: "Home",
+          },
+          {
+            href: "/experience",
+            name: "Experience",
+          },
+        ]}
       />
       <AboutSectionOne />
       <AboutSectionTwo />
@@ -23,4 +33,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default Dagangan;

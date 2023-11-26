@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import SingleBlog from "@/components/Blog/SingleBlog";
-import blogData from "@/components/Blog/blogData";
+import blogDataImport from "@/components/Blog/blogData";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 
@@ -17,32 +17,28 @@ const Blog = () => {
   // Calculate the index range for the current page
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const totalPage = Math.ceil(blogData.length / postsPerPage);
+  const totalPage = Math.ceil(blogDataImport.length / postsPerPage);
+  const blogDataImportCopy = [...blogDataImport];
+  const reversedArray = blogDataImportCopy.reverse();
 
-  const currentPosts = blogData
-    .reverse()
-    .slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = reversedArray.slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber: number) => {
-    console.log(currentPosts);
-
     if (pageNumber > 0 && pageNumber <= totalPage) {
       setCurrentPage(pageNumber);
     }
   };
 
-  useEffect(() => {
-    console.log(currentPosts);
-  }, []);
-
   return (
     <>
-      <Breadcrumb pageName="Blog " description="Welcome to my blog" />
+      <div className="mb-6 md:mb-0">
+        <Breadcrumb pageName="Blog " description="Welcome to my blog" />
+      </div>
 
       <section className="pb-[120px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
-            {currentPosts.map((blog) => (
+            {currentPosts?.map((blog: any) => (
               <div
                 key={blog.id}
                 className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3 mb-8 md:mb-4"
@@ -69,7 +65,7 @@ const Blog = () => {
                 </li>
                 {/* Render pagination links dynamically based on the number of pages */}
                 {Array.from(
-                  { length: Math.ceil(blogData.length / postsPerPage) },
+                  { length: Math.ceil(blogDataImport.length / postsPerPage) },
                   (_, i) => (
                     <li key={i} className="mx-1">
                       <a

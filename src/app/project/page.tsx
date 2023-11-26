@@ -9,17 +9,14 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-const ContactPage = () => {
+const Project = () => {
   return (
     <>
-      <Breadcrumb
-        pageName="Contact Page"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
-      />
+      <Breadcrumb pageName="Project" description="Here are my projects" />
 
       <Contact />
     </>
   );
 };
 
-export default ContactPage;
+export default Project;

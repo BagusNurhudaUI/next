@@ -11,6 +11,7 @@ const Features = () => {
             title="My Skills"
             paragraph="As a dedicated professional, I bring a diverse range of skills and experiences to the table, allowing me to excel in various aspects of my work."
             center
+            mb="50px md:100px"
           />
 
           <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-2 lg:grid-cols-3">

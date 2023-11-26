@@ -2,11 +2,14 @@ import Link from "next/link";
 
 const BreadcrumbCustom = ({
   pageName,
-  description,
+  beforepageName,
   pt = "pt-28",
 }: {
   pageName: string;
-  description: string;
+  beforepageName: {
+    href: string;
+    name: string;
+  }[];
   pt?: string;
 }) => {
   return (
@@ -17,24 +20,18 @@ const BreadcrumbCustom = ({
             <div className="w-full px-4 md:w-4/12 lg:w-5/12">
               <div className="text-end">
                 <ul className="flex items-center md:justify-end">
-                  <li className="flex items-center">
-                    <Link
-                      href="/"
-                      className="pr-1 text-base font-medium text-body-color hover:text-primary"
-                    >
-                      Home
-                    </Link>
-                    <span className="mr-3 block h-2 w-2 rotate-45 border-r-2 border-t-2 border-body-color"></span>
-                  </li>
-                  <li className="flex items-center">
-                    <Link
-                      href="/blog"
-                      className="pr-1 text-base font-medium text-body-color hover:text-primary"
-                    >
-                      Blog
-                    </Link>
-                    <span className="mr-3 block h-2 w-2 rotate-45 border-r-2 border-t-2 border-body-color"></span>
-                  </li>
+                  {beforepageName.map((beforepage) => (
+                    <li className="flex items-center">
+                      <Link
+                        href={beforepage.href}
+                        className="pr-1 text-base font-medium text-body-color hover:text-primary"
+                      >
+                        {beforepage.name}
+                      </Link>
+                      <span className="mr-3 block h-2 w-2 rotate-45 border-r-2 border-t-2 border-body-color"></span>
+                    </li>
+                  ))}
+
                   <li className="text-base font-medium text-primary flex justify-start">
                     {pageName}
                   </li>
