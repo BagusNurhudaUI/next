@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import NewsLatterBox from "./NewsLatterBox";
+import Loader from "../Loader";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,13 +19,15 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/api/send-email", {
+      setIsLoading(true);
+      const response = await fetch("/api/email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
+      setIsLoading(false);
 
       // const response = await fetch("/api/hello", {
       //   method: "GET",
@@ -36,6 +40,7 @@ const Contact = () => {
       // console.log({ response });
 
       const data = await response.json();
+
       alert(data?.message);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -44,6 +49,7 @@ const Contact = () => {
   return (
     <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
       <div className="container">
+        {isLoading && <Loader />}
         <div className="-mx-4 flex justify-center ">
           <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
             <div

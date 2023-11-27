@@ -9,7 +9,7 @@ const Features = () => {
         <div className="container">
           <SectionTitle
             title="My Skills"
-            paragraph="As a dedicated professional, I bring a diverse range of skills and experiences to the table, allowing me to excel in various aspects of my work."
+            paragraph="As a devoted professional, my proficiency extends across a spectrum of skills and encompasses diverse experiences, enabling me to excel in both skillful execution and project management."
             center
             mb="50px"
           />

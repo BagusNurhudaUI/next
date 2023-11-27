@@ -14,7 +14,7 @@ const featuresData: Feature[] = [
     ),
     title: "Backend Development",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Bring your digital projects to life with expert backend development. I specialize in creating robust and efficient server-side solutions, ensuring seamless data management and optimal functionality.",
   },
   {
     id: 1,
@@ -29,7 +29,7 @@ const featuresData: Feature[] = [
     ),
     title: "Web Development",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Crafting engaging and user-friendly web experiences is my forte. Leverage my skills in web development to build interactive and visually appealing websites that captivate your audience.",
   },
   {
     id: 1,
@@ -44,7 +44,7 @@ const featuresData: Feature[] = [
     ),
     title: "Cloud Computing",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Elevate your infrastructure with cutting-edge cloud solutions. I provide expertise in harnessing the power of cloud computing to optimize scalability, enhance security, and streamline your operations.",
   },
   {
     id: 1,
@@ -59,7 +59,7 @@ const featuresData: Feature[] = [
     ),
     title: "Machine Learning",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Unlock the potential of your data through machine learning solutions. I offer proficiency in developing intelligent algorithms and models that empower your systems to learn, adapt, and deliver intelligent insights.",
   },
   {
     id: 1,
@@ -74,7 +74,7 @@ const featuresData: Feature[] = [
     ),
     title: "Software Architecture",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Build a strong foundation for your applications with meticulous software architecture design. My focus is on creating scalable, modular, and efficient software structures that form the backbone of successful projects.",
   },
   {
     id: 1,
@@ -89,7 +89,7 @@ const featuresData: Feature[] = [
     ),
     title: "Project Management",
     paragraph:
-      "Tuae nam ex similique incidunt expedita exerci tationem laudantium. Repellendus quisquam numquam perferendis earum sapiente non tempore? Fugit repellat ut maiores.",
+      "Navigate your projects with precision and efficiency through effective project management. I bring experience in coordinating tasks, managing resources, and ensuring timely project delivery for successful outcomes.",
   },
 ];
 export default featuresData;

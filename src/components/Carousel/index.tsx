@@ -29,7 +29,7 @@ export default function Carousel({ images }: any) {
     <section className="relative z-10 py-16 md:py-20 lg:py-28 container">
       <div className="container">
         <SectionTitle
-          title="See what i have done"
+          title="See what I have done"
           paragraph="There are many variations of project that i deliver successfully, here are some examples"
           center
           mb="80px"

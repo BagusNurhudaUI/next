@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server",
+    "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start",
+    "start": "next build && node server",
     "lint": "next lint"
   },
   "dependencies": {
@@ -18,7 +18,8 @@
     "react-dom": "^18",
     "react-easy-swipe": "^0.0.23",
     "react-icons": "^4.12.0",
-    "react-modal-video": "^2.0.1"
+    "react-modal-video": "^2.0.1",
+    "react-spinners": "^0.13.8"
   },
   "devDependencies": {
     "@types/node": "^20",
