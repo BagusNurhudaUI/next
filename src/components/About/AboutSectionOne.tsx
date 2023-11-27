@@ -26,7 +26,7 @@ const AboutSectionOne = () => {
               <SectionTitle
                 title="Crafted for Startup, SaaS and Business Sites."
                 paragraph="The main ‘thrust’ is to focus on educating attendees on how to best protect highly vulnerable business applications with interactive panel discussions and roundtables."
-                mb="44px"
+                divClass="wow fadeInUp w-full max-w-[570px] mb-[44px] mt-[0px]"
               />
 
               <div

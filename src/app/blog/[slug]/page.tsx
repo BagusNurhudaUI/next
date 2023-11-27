@@ -145,9 +145,8 @@ export default function BlogDetailsPage({
                         <p
                           key={index}
                           className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed"
-                        >
-                          {content.value}
-                        </p>
+                          dangerouslySetInnerHTML={{ __html: content?.value }}
+                        ></p>
                       );
                     } else if (content.type === "image") {
                       return (

@@ -15,8 +15,7 @@ const Video = () => {
         <SectionTitle
           title="We are ready to help"
           paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
-          center
-          mb="80px"
+          divClass="wow fadeInUp w-full max-w-[570px] mb-[80px] mt-[0px] mx-auto text-center"
         />
 
         <div className="-mx-4 flex flex-wrap">

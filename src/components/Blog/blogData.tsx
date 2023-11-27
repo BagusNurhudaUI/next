@@ -17,8 +17,9 @@ const blogData: Blog[] = [
     content: [
       {
         type: "text",
-        value:
-          "Hi, I'm Bagus Nurhuda , a junior software engineer specializing in backend development. This is my first blog post in my website, so the first topic is about implementing the external dependencies (especially database integration) in creating unit tests.",
+        value: `Hi, I'm Bagus Nurhuda , a junior software engineer specializing in backend development. This is my 
+          <strong>first blog</strong> 
+          post in my website, so the first topic is about implementing the external dependencies (especially database integration) in creating unit tests.`,
       },
       {
         type: "image",

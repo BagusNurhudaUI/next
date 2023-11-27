@@ -39,7 +39,7 @@ const Testimonials = () => {
         <SectionTitle
           title="What Our Users Says"
           paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
-          center
+          divClass="wow fadeInUp w-full max-w-[570px] mb-[100px] mt-[0px] mx-auto text-center"
         />
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">

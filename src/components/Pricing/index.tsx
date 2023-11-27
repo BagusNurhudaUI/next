@@ -13,8 +13,7 @@ const Pricing = () => {
         <SectionTitle
           title="Simple and Affordable Pricing"
           paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
-          center
-          width="665px"
+          divClass="wow fadeInUp w-full max-w-[665px] mb-[100px] mt-[0px] mx-auto text-center"
         />
 
         <div className="w-full">

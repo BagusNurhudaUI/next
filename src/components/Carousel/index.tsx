@@ -31,8 +31,7 @@ export default function Carousel({ images }: any) {
         <SectionTitle
           title="See what I have done"
           paragraph="There are many variations of project that i deliver successfully, here are some examples"
-          center
-          mb="80px"
+          divClass="wow fadeInUp w-full max-w-[570px] mb-[80px] mt-[0px] mx-auto text-center"
         />
 
         <div className="-mx-4 flex flex-wrap">
