@@ -28,7 +28,7 @@ const Hero = () => {
                   </p>
                   <div className="md:flex flex-col items-left mb-4 md:justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                     <Link
-                      href="https://drive.google.com/file/d/19D7LqtDR9Mcr7C0e2NrN1R4vPmEQsD-D/view"
+                      href="https://drive.google.com/file/d/15ttoF_SmnIejy8DOJKaJv9bDxX8F7CzC/view"
                       className="rounded-sm bg-primary px-6 py-3 md:px-8 md:py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                     >
                       Download My CV

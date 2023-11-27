@@ -3,17 +3,11 @@ import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
 
-import { Metadata } from "next";
 import blogData from "@/components/Blog/blogData";
 import { useEffect, useState } from "react";
 import { Blog } from "@/types/blog";
 import BreadcrumbCustom from "@/components/Common/BreadcrumbCustom";
-
-// export const metadata: Metadata = {
-//   title: "Blog Details Page | Free Next.js Template for Startup and SaaS",
-//   description: "This is Blog Details Page for Startup Nextjs Template",
-//   // other metadata
-// };
+import Head from "next/head";
 
 export default function BlogDetailsPage({
   params,
@@ -31,8 +25,20 @@ export default function BlogDetailsPage({
       setData(matchingBlog);
     }
   }, [params.slug]);
+
+  // Dynamic metadata
+  const pageTitle = data?.title || "Blog Details";
+  const metaDescription = data?.description || "Blog post description";
+
   return (
     <>
+      <Head>
+        <title>djabjhdwabdh</title>
+        <meta name="description" content={metaDescription} />
+        <meta property="og:title" content="djbabdha" />
+        <meta property="og:description" content={metaDescription} />
+        {/* Add more meta tags as needed for your specific requirements */}
+      </Head>
       <section className="pb-[120px] pt-[150px]">
         <BreadcrumbCustom
           pageName={decodeURIComponent(params.slug)}
@@ -386,5 +392,3 @@ export default function BlogDetailsPage({
     </>
   );
 }
-
-// export default BlogDetailsPage;
