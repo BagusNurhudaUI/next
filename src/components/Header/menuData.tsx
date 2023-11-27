@@ -42,6 +42,24 @@ const menuData: Menu[] = [
         path: "/experience/dagangan",
         newTab: false,
       },
+      {
+        id: 33,
+        title: "Grha Mitra Empatenam",
+        path: "/experience/gme",
+        newTab: false,
+      },
+      {
+        id: 34,
+        title: "UP2M DTE FTUI",
+        path: "/experience/up2m",
+        newTab: false,
+      },
+      {
+        id: 35,
+        title: "Telkomsel",
+        path: "/experience/telkomsel",
+        newTab: false,
+      },
     ],
   },
   {
