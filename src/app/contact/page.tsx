@@ -15,13 +15,11 @@ export const metadata: Metadata = {
 const ContactPage = () => {
   return (
     <>
-      <Suspense fallback={<LoaderComponent />}>
-        <Breadcrumb
-          pageName="Contact"
-          description="Feel free to contact me by submitting the form below and I will get back to you as soon as possible"
-        />
-        <Contact />
-      </Suspense>
+      <Breadcrumb
+        pageName="Contact"
+        description="Feel free to contact me by submitting the form below and I will get back to you as soon as possible"
+      />
+      <Contact />
     </>
   );
 };

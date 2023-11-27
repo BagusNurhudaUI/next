@@ -16,11 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-      <head />
+      <head>
+        <title>Bagus Nurhuda</title>
+        <meta
+          name="description"
+          content="This is Bagus Nurhuda's private website"
+        />
+        {/* Other meta tags */}
+      </head>
 
       <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
         <Providers>

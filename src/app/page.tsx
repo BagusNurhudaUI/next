@@ -12,6 +12,8 @@ import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import Carousel from "@/components/Carousel";
 import { Metadata } from "next";
+import LoaderComponent from "@/components/Loader/LoaderComponent";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Bagus Nurhuda",
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <>
+    <Suspense fallback={<LoaderComponent />}>
       <ScrollUp />
       <Hero />
       <Features />
@@ -43,6 +45,6 @@ export default function Home() {
         pClass="text-base !leading-relaxed text-body-color md:text-lg"
       />
       <Contact />
-    </>
+    </Suspense>
   );
 }
