@@ -233,9 +233,9 @@ She comes with a prince and shall break the spell,
 and together save the land from hell.
 ```
 
-![Alt text](../public/images/blog/blog-01.jpg)
+![Alt text](/images/blog/blog-01.jpg)
 
-![A medium cat image](https://cdn2.thecatapi.com/images/9qLSHCaQQ.jpg)
+<!-- ![A medium cat image](https://cdn2.thecatapi.com/images/9qLSHCaQQ.jpg) -->
 
 So many things I love about this response.
 

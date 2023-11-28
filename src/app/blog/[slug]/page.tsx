@@ -48,6 +48,17 @@ export default async function BlogDetailsPage({
 }) {
   let { data, post } = await getBlogData(params.slug);
 
+  const options = {
+    overrides: {
+      img: (props: any) => (
+        <img {...props} className="w-full mx-auto block px-12" />
+      ),
+      p: {
+        component: (props: any) => <p {...props} className="" />,
+      },
+    },
+  };
+
   return (
     <>
       <section className="pb-[120px] pt-[150px]">
@@ -154,8 +165,8 @@ export default async function BlogDetailsPage({
                   </div>
                 </div>
                 <div>
-                  <article className="prose md:prose-lg lg:prose-xl dark:prose-invert max-w-none px-2 mb-10">
-                    <Markdown className="text-base">{post?.content}</Markdown>
+                  <article className="prose md:prose-lg lg:prose-xl dark:prose-invert max-w-none px-2 mb-10 justify-center flex">
+                    <Markdown options={options}>{post?.content}</Markdown>
                   </article>
                   <div className="items-center justify-between sm:flex">
                     <div className="mb-5">
