@@ -19,7 +19,9 @@ const ContactPage = () => {
         pageName="Contact"
         description="Feel free to contact me by submitting the form below and I will get back to you as soon as possible"
       />
-      <Contact />
+      <div className="py-12">
+        <Contact />
+      </div>
     </>
   );
 };

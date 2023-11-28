@@ -97,17 +97,18 @@ export default async function BlogDetailsPage({
             },
           ]}
           pt="0px"
+          pb="pb-4 md:pb-8"
         />
         <div className="container">
           <div className="-mx-4 flex flex-wrap justify-center">
             <div className="w-full px-4 lg:w-8/12">
               <div>
-                <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
+                <h2 className="mb-4 md:mb-8 text-2xl md:text-3xl font-bold leading-tight text-black dark:text-white sm:leading-tight">
                   {params.slug.replace(/-/g, " ")}
                 </h2>
                 <div className="mb-8 md:10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10  dark:border-white dark:border-opacity-10">
                   <div className="flex flex-wrap items-center">
-                    <div className="mb-5 mr-10 flex items-center">
+                    <div className="mb-4 mr-10 flex items-center">
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
                           {data?.author?.image ? (
@@ -121,8 +122,8 @@ export default async function BlogDetailsPage({
                         </span>
                       </div>
                     </div>
-                    <div className="mb-5 flex items-center">
-                      <p className="mr-5 flex items-center text-base font-medium text-body-color">
+                    <div className="mb-4 flex items-center">
+                      <p className="mr-4 flex items-center text-base font-medium text-body-color">
                         <span className="mr-3">
                           <svg
                             width="15"
@@ -173,7 +174,7 @@ export default async function BlogDetailsPage({
                       </p>
                     </div>
                   </div>
-                  <div className="mb-5">
+                  <div className="mb-4">
                     {data?.tags?.map((tag: any, index: any) => (
                       <a
                         key={index}

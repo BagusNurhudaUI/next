@@ -37,7 +37,7 @@ const Contact = () => {
     }
   };
   return (
-    <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
+    <section id="contact" className="overflow-hidden">
       <div className="container">
         {isLoading && <Loader />}
         <div className="-mx-4 flex justify-center ">

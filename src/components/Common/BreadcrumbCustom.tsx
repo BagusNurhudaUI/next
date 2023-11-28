@@ -4,6 +4,7 @@ const BreadcrumbCustom = ({
   pageName,
   beforepageName,
   pt = "pt-28",
+  pb = "pb-10",
 }: {
   pageName: string;
   beforepageName: {
@@ -11,10 +12,11 @@ const BreadcrumbCustom = ({
     name: string;
   }[];
   pt?: string;
+  pb?: string;
 }) => {
   return (
     <>
-      <section className={`relative z-10 overflow-hidden ${pt} pb-10`}>
+      <section className={`relative z-10 overflow-hidden ${pt} ${pb}`}>
         <div className="container">
           <div className="-mx-4 flex justify-end">
             <div className="w-full px-4 md:w-12/12 lg:w-12/12">

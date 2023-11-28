@@ -28,11 +28,13 @@ export default function Home() {
       <SectionTitle
         title="Contact Me"
         paragraph="Feel free to contact me for further discussion"
-        divClass="wow fadeInUp w-full max-w-[570px] mb-[0px] mt-[7rem] mx-auto text-center"
+        divClass="wow fadeInUp w-full max-w-[570px] mb-[30px] md:mb-[60px] mt-[3rem] mx-auto text-center"
         h2Class="mb-4 text-3xl font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px]"
         pClass="text-base !leading-relaxed text-body-color md:text-lg"
       />
-      <Contact />
+      <div className="pb-20">
+        <Contact />
+      </div>
     </Suspense>
   );
 }

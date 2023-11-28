@@ -5,7 +5,7 @@ const SingleFeature = ({ feature }: { feature: Feature }) => {
   return (
     <div className="w-full">
       <div className="wow fadeInUp" data-wow-delay=".15s">
-        <div className="flex flex-row gap-4 mb-10">
+        <div className="flex flex-row gap-4 mb-4 md:mb-10">
           <div className=" flex h-[70px] w-[70px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
             {icon}
           </div>
@@ -14,7 +14,7 @@ const SingleFeature = ({ feature }: { feature: Feature }) => {
           </h3>
         </div>
 
-        <p className="pr-[10px] text-base font-medium leading-relaxed text-body-color">
+        <p className="pr-[10px] text-base font-medium leading-relaxed text-body-color text-justify md:text-left">
           {paragraph}
         </p>
       </div>

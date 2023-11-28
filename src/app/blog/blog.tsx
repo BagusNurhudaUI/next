@@ -24,7 +24,10 @@ const Blog = () => {
   return (
     <>
       <div className="mb-6 lg:mb-0">
-        <Breadcrumb pageName="Blog " description="Welcome to my blog" />
+        <Breadcrumb
+          pageName="Blog "
+          description="Explore my blog and discover a world of words, thoughts, and insights – welcome to my digital space."
+        />
       </div>
 
       <section className="pb-[120px]">
