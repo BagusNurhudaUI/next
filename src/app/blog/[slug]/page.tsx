@@ -51,7 +51,7 @@ export default async function BlogDetailsPage({
   const options = {
     overrides: {
       img: (props: any) => (
-        <img {...props} className="w-full mx-auto block px-12" />
+        <img {...props} className="w-full mx-auto lg:px-12" />
       ),
       p: {
         component: (props: any) => <p {...props} className="" />,
@@ -165,7 +165,7 @@ export default async function BlogDetailsPage({
                   </div>
                 </div>
                 <div>
-                  <article className="prose md:prose-lg lg:prose-xl dark:prose-invert max-w-none px-2 mb-10 justify-center flex">
+                  <article className="prose max-w-auto md:prose-lg lg:prose-xl dark:prose-invert px-2 mb-10 ">
                     <Markdown options={options}>{post?.content}</Markdown>
                   </article>
                   <div className="items-center justify-between sm:flex">
