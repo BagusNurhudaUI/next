@@ -1,30 +1,54 @@
-"use client";
 import SharePost from "@/components/Blog/SharePost";
 import TagButton from "@/components/Blog/TagButton";
 import Image from "next/image";
-
 import blogData from "@/components/Blog/blogData";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Blog } from "@/types/blog";
 import BreadcrumbCustom from "@/components/Common/BreadcrumbCustom";
 import Head from "next/head";
+import { notFound } from "next/navigation";
 
-export default function BlogDetailsPage({
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const title = blogData.map((blog) => ({
+    slug: blog.title,
+  }));
+  // console.log({ title });
+
+  return title;
+}
+
+async function getBlogData(slug: string) {
+  const matchingBlog = blogData.find(
+    (blog: any) => blog.title === decodeURIComponent(slug)
+  );
+
+  // console.log({ matchingBlog });
+
+  if (!matchingBlog) notFound();
+
+  return matchingBlog;
+}
+
+export default async function BlogDetailsPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const [data, setData] = useState<Blog>();
+  // const [data, setData] = useState<Blog>();
+  let data = await getBlogData(params.slug);
 
-  useEffect(() => {
-    const matchingBlog = blogData.find(
-      (blog: any) => blog.title === decodeURIComponent(params.slug)
-    );
+  // useEffect(() => {
+  //   const matchingBlog = blogData.find(
+  //     (blog: any) => blog.title === decodeURIComponent(params.slug)
+  //   );
+  //   console.log("PAGE RENDERED", Date.now());
 
-    if (matchingBlog) {
-      setData(matchingBlog);
-    }
-  }, [params.slug]);
+  //   if (matchingBlog) {
+  //     data = matchingBlog;
+  //   }
+  // }, [params.slug]);
 
   // Dynamic metadata
   const pageTitle = data?.title || "Blog Details";
@@ -35,9 +59,6 @@ export default function BlogDetailsPage({
       <Head>
         <title>djabjhdwabdh</title>
         <meta name="description" content={metaDescription} />
-        <meta property="og:title" content="djbabdha" />
-        <meta property="og:description" content={metaDescription} />
-        {/* Add more meta tags as needed for your specific requirements */}
       </Head>
       <section className="pb-[120px] pt-[150px]">
         <BreadcrumbCustom
@@ -133,7 +154,7 @@ export default function BlogDetailsPage({
                     </div>
                   </div>
                   <div className="mb-5">
-                    {data?.tags.map((tag, index) => (
+                    {data?.tags?.map((tag, index) => (
                       <a
                         key={index}
                         href="#0"

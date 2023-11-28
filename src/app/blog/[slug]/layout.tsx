@@ -1,6 +1,6 @@
 // import { Metadata } from "next";
 import Page from "./page"; // import your Demo's page
-import con from "../../../utils/const";
+import con from "@/utils/const";
 
 // export const metadata: Metadata = {
 //   title: "Blog | Bagus Nurhuda",
@@ -19,6 +19,8 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
+  // console.log("LAYOUT RENDERED", Date.now());
+
   return {
     title: ` ${decodeURIComponent(params.slug)} | Bagus Nurhuda`,
     description: con.PAGE_DESCRIPTION,

@@ -37,7 +37,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     };
 
     const result = await transporter.sendMail(options);
-    console.log({ result });
+    // console.log({ result });
 
     // Respond to the client
     return NextResponse.json(
