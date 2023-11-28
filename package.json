@@ -23,13 +23,15 @@
     "react-easy-swipe": "^0.0.23",
     "react-icons": "^4.12.0",
     "react-modal-video": "^2.0.1",
-    "react-spinners": "^0.13.8"
+    "react-spinners": "^0.13.8",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.10",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",

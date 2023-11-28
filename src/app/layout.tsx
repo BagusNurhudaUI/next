@@ -7,6 +7,7 @@ import { Inter } from "next/font/google";
 import "../../node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
 import { Providers } from "./providers";
+import Con from "@/utils/const";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -18,10 +19,7 @@ export default function RootLayout({
     <html suppressHydrationWarning lang="en">
       <head>
         <title>Bagus Nurhuda</title>
-        <meta
-          name="description"
-          content="This is Bagus Nurhuda's private website"
-        />
+        <meta name="description" content={Con.PAGE_DESCRIPTION} />
         {/* Other meta tags */}
       </head>
 

@@ -1,10 +1,11 @@
 import Link from "next/link";
 
 import { Metadata } from "next";
+import Con from "@/utils/const";
 
 export const metadata: Metadata = {
   title: "Error | Bagus Nurhuda",
-  description: "Error | Bagus Nurhuda",
+  description: Con.PAGE_DESCRIPTION,
   // other metadata
 };
 

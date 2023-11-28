@@ -10,27 +10,33 @@ import { notFound } from "next/navigation";
 import fs from "fs";
 import matter from "gray-matter";
 import Markdown from "markdown-to-jsx";
-
-export const dynamicParams = true;
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import {
+  dracula,
+  duotoneDark,
+  dark,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export async function generateStaticParams() {
   const title = blogData.map((blog) => ({
-    slug: blog.title,
+    slug: blog.title.replace(/\s+/g, "-"),
   }));
-  // console.log({ title });
-
   return title;
 }
 
 async function getBlogData(slug: string) {
-  const matchingBlog = blogData.find(
-    (blog: any) => blog.title === decodeURIComponent(slug)
-  );
+  const matchingBlog = blogData.find((blog: any) => blog.title === slug);
 
   if (!matchingBlog) notFound();
 
   const folder = "blogposts/";
   const file = `${folder}${matchingBlog?.file}.md`;
+
+  if (!fs.existsSync(file)) {
+    console.error(`File not found: ${file}`);
+    return notFound();
+  }
+
   const content = fs.readFileSync(file, "utf8");
   const matterResult = matter(content);
 
@@ -41,29 +47,45 @@ async function getBlogData(slug: string) {
   return res;
 }
 
+const CodeBlock = ({ className, children }: any) => {
+  let lang = "text"; // default monospaced text
+  if (className && className.startsWith("lang-")) {
+    lang = className.replace("lang-", "");
+    return (
+      <SyntaxHighlighter
+        language={lang}
+        style={dracula}
+        customStyle={{
+          color: "inherit",
+          background: "var(--tw-prose-pre-bg)",
+        }}
+      >
+        {children}
+      </SyntaxHighlighter>
+    );
+  }
+  return <pre lang={lang}>{children}</pre>;
+};
+
+const PreBlock = ({ children, ...rest }: any) => {
+  if ("type" in children && children["type"] === "code") {
+    return CodeBlock(children["props"]);
+  }
+  return <pre {...rest}>{children}</pre>;
+};
+
 export default async function BlogDetailsPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  let { data, post } = await getBlogData(params.slug);
-
-  const options = {
-    overrides: {
-      img: (props: any) => (
-        <img {...props} className="w-full mx-auto lg:px-12" />
-      ),
-      p: {
-        component: (props: any) => <p {...props} className="" />,
-      },
-    },
-  };
+  let { data, post } = await getBlogData(params.slug.replace(/-/g, " "));
 
   return (
     <>
-      <section className="pb-[120px] pt-[150px]">
+      <section className="pb-[120px] pt-[130px] md:pt-[150px]">
         <BreadcrumbCustom
-          pageName={decodeURIComponent(params.slug)}
+          pageName={params.slug.replace(/-/g, " ")}
           beforepageName={[
             {
               href: "/",
@@ -81,23 +103,21 @@ export default async function BlogDetailsPage({
             <div className="w-full px-4 lg:w-8/12">
               <div>
                 <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
-                  {decodeURIComponent(params.slug)}
+                  {params.slug.replace(/-/g, " ")}
                 </h2>
-                <div className="mb-10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10 pb-4 dark:border-white dark:border-opacity-10">
+                <div className="mb-8 md:10 flex flex-wrap items-center justify-between border-b border-body-color border-opacity-10  dark:border-white dark:border-opacity-10">
                   <div className="flex flex-wrap items-center">
                     <div className="mb-5 mr-10 flex items-center">
                       <div className="mr-4">
                         <div className="relative h-10 w-10 overflow-hidden rounded-full">
                           {data?.author?.image ? (
                             <Image src={data.author.image} alt="author" fill />
-                          ) : // You can provide a default image source or render nothing here.
-                          // Example: <Image src="/images/default-author.png" alt="Default Author" fill />
-                          null}
+                          ) : null}
                         </div>
                       </div>
                       <div className="w-full">
                         <span className="mb-1 text-base font-medium text-body-color">
-                          By <span>{data?.author.name}</span>
+                          By <span>{data?.author?.name}</span>
                         </span>
                       </div>
                     </div>
@@ -134,8 +154,9 @@ export default async function BlogDetailsPage({
                             <path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
                           </svg>
                         </span>
-                        {data.readingTime}
+                        {data?.readingTime}
                       </p>
+                      {/* hidden read  */}
                       <p className="flex items-center text-base font-medium text-body-color hidden">
                         <span className="mr-3">
                           <svg
@@ -165,8 +186,31 @@ export default async function BlogDetailsPage({
                   </div>
                 </div>
                 <div>
-                  <article className="prose max-w-auto md:prose-lg lg:prose-xl dark:prose-invert px-2 mb-10 ">
-                    <Markdown options={options}>{post?.content}</Markdown>
+                  <article className="prose max-w-none md:prose-lg lg:prose-xl dark:!prose-invert px-2 mb-10 ">
+                    <Markdown
+                      options={{
+                        overrides: {
+                          pre: PreBlock,
+                          img: (props: any) => {
+                            const alt = props.alt || "image";
+                            return (
+                              <img
+                                {...props}
+                                alt={alt}
+                                className="w-full mx-auto lg:px-12"
+                              />
+                            );
+                          },
+                          p: {
+                            component: (props: any) => (
+                              <p {...props} className="" />
+                            ),
+                          },
+                        },
+                      }}
+                    >
+                      {post?.content}
+                    </Markdown>
                   </article>
                   <div className="items-center justify-between sm:flex">
                     <div className="mb-5">
@@ -175,7 +219,7 @@ export default async function BlogDetailsPage({
                       </h4>
 
                       <div className="flex items-center">
-                        {data?.tags.map((tag, index) => (
+                        {data?.tags?.map((tag, index) => (
                           <TagButton key={index} text={`${tag}`} />
                         ))}
                       </div>

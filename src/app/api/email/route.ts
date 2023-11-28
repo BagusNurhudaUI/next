@@ -15,7 +15,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     const { name, email, message } = await req.json();
 
     // Implement your email sending logic here
-    console.log("Form Data neww:", { name, email, message });
+    // console.log("Form Data neww:", { name, email, message });
 
     const transporter = nodemailer.createTransport({
       service: "gmail",

@@ -2,11 +2,17 @@
 title: "Using AI to generate poetry"
 subtitle: "I used GPT-3 to generate poetry and other creative content."
 date: "2021-08-27"
+paragraph: "This blog will discuss the implementation of external dependencies when creating unit tests."
+image: "/images/blog/unit-test.jpg"
+publishDate: "Dec 2023"
+readingTime: "10 minutes read"
 ---
 
-I was recently granted access to the [OpenAI GPT-3 Beta](https://beta.openai.com/), a very powerful language model that can be used to do all sorts of magic like chat bot generation, article summary, and a [lot more cool stuff](https://beta.openai.com/examples).
+Hi, I'm Bagus Nurhuda , a junior software engineer specializing in **backend development**. This is my first blog post in my website, so the first topic is about implementing the external dependencies (especially database integration) in creating unit tests.
 
-But the application that really excited me was creative writing (stuff like SEO generation is cool and all, but a also a bit dry for my taste).
+Before I started, you also check my previous work [here](https://github.com/BagusNurhudaUI). So lets continue the topic.
+
+![Unit Test Image](/images/blog/unit-test.jpg)
 
 I had previously seen [AI Dungeon](https://play.aidungeon.io/) use GPT to create an interactive text adventure game (try it, it's fun!) and that got me curious about what else the AI was capable of — especially when elements of both _creativity_ and _structure_ were involved.
 
@@ -225,12 +231,21 @@ I ended the prompt with `But there is hope` because I was interested to see if t
 
 The results for this prompt were probably the most entertaining for me to read. My favorite:
 
-```
+```go
+var add2 = function (number) {
+  return number + 2;
+};
 [Sample AI Response]
 a prophecy is spoken,
 Which tells of one who will restore the sun.
 She comes with a prince and shall break the spell,
 and together save the land from hell.
+```
+
+```js
+var add2 = function (number) {
+  return number + 2;
+};
 ```
 
 ![Alt text](/images/blog/blog-01.jpg)
@@ -278,7 +293,7 @@ Just when I've seen enough, it happens again
 
 ## Wrap Up
 
-That's pretty much all I had to share this time around. GPT-3 has definitely impressed me with it's capabilities, and now I have a stronger understanding how this power can be wielded.
+That's pretty much all I had to share this time around. When creating unit test in any service we have to decide first of using internal dependency (`dependency injection`) or external dependency
 
 In a batch of 20 samples, not all of them are great—but the good ones are sometimes _really_ good.
 

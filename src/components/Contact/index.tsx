@@ -29,16 +29,6 @@ const Contact = () => {
       });
       setIsLoading(false);
 
-      // const response = await fetch("/api/hello", {
-      //   method: "GET",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   // body: JSON.stringify(formData),
-      // });
-
-      // console.log({ response });
-
       const data = await response.json();
 
       alert(data?.message);
@@ -122,9 +112,10 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          {/* <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
+          {/* hidden */}
+          <div className="w-full px-4 lg:w-5/12 xl:w-4/12 hidden">
             <NewsLatterBox />
-          </div> */}
+          </div>
         </div>
       </div>
     </section>

@@ -41,7 +41,7 @@ const BreadcrumbCustom = ({
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <span className="absolute left-0 top-0 z-[-1]">
             <svg
               width="287"
@@ -114,7 +114,7 @@ const BreadcrumbCustom = ({
               </defs>
             </svg>
           </span>
-        </div>
+        </div> */}
       </section>
     </>
   );
