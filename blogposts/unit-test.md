@@ -14,6 +14,12 @@ Before I started, you also check my previous work [here](https://github.com/Bagu
 
 ![Unit Test Image](/images/blog/unit-test.jpg)
 
+![image](https://storage.googleapis.com/bni-gme/web-bagus/Logo_PLN.png)
+
+![Alt text](/images/blog/blog-01.jpg)
+
+![A medium cat image](https://cdn2.thecatapi.com/images/9qLSHCaQQ.jpg)
+
 I had previously seen [AI Dungeon](https://play.aidungeon.io/) use GPT to create an interactive text adventure game (try it, it's fun!) and that got me curious about what else the AI was capable of — especially when elements of both _creativity_ and _structure_ were involved.
 
 I decided to test it against poetry and story generation, and this is the resulting write-up of those experiments.
@@ -247,10 +253,6 @@ var add2 = function (number) {
   return number + 2;
 };
 ```
-
-![Alt text](/images/blog/blog-01.jpg)
-
-<!-- ![A medium cat image](https://cdn2.thecatapi.com/images/9qLSHCaQQ.jpg) -->
 
 So many things I love about this response.
 
