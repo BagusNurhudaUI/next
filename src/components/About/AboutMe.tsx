@@ -226,7 +226,7 @@ const AboutMe: NextPage<Props> = ({}) => {
                   Connecting with people is something I truly enjoy. To foster
                   meaningful connections and personal growth, I actively engage
                   with various communities. Here's a glimpse of some
-                  organizations I've been a part of:
+                  organizations I&apos;ve been a part of:
                 </p>
                 <ul className="mb-10 list-inside list-disc text-body-color">
                   <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">

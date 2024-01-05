@@ -198,7 +198,7 @@ export default async function BlogDetailsPage({
                               <img
                                 {...props}
                                 alt={alt}
-                                className="w-full mx-auto lg:px-12"
+                                className="md:w-[80%] mx-auto lg:px-12 object-cover"
                               />
                             );
                           },
@@ -230,7 +230,7 @@ export default async function BlogDetailsPage({
                         Share this post :
                       </h5>
                       <div className="flex items-center sm:justify-end">
-                        <SharePost />
+                        <SharePost url={params.slug} />
                       </div>
                     </div>
                   </div>

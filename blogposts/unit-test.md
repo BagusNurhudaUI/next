@@ -14,7 +14,7 @@ Before I started, you also check my previous work [here](https://github.com/Bagu
 
 ![Unit Test Image](/images/blog/unit-test.jpg)
 
-![image](https://storage.googleapis.com/bni-gme/web-bagus/Logo_PLN.png)
+![image](https://storage.googleapis.com/bni-gme/web-bagus/Logo_PLN.png){:width="300" height="200"}
 
 ![Alt text](/images/blog/blog-01.jpg)
 
