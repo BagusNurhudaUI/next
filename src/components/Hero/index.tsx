@@ -8,7 +8,7 @@ const Hero = () => {
         id="home"
         className="dark:bg-gray-dark relative z-10 overflow-hidden bg-white md:pb-16 pt-[120px] md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
       >
-        <div className="container">
+        <div className="container px-0 md:px-10 lg:px-20">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-2 lg:px-[3.5rem] flex flex-col md:flex-row">
               <div className="md:w-3/5 px-4 flex flex-col justify-center items-center">
@@ -29,6 +29,7 @@ const Hero = () => {
                   <div className="md:flex flex-col items-left mb-4 md:justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                     <Link
                       href="https://drive.google.com/file/d/15ttoF_SmnIejy8DOJKaJv9bDxX8F7CzC/view"
+                      target="_blank"
                       className="rounded-sm bg-primary px-6 py-3 md:px-8 md:py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                     >
                       Download My CV

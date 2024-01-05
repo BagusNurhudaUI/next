@@ -6,7 +6,7 @@ const Features = () => {
   return (
     <>
       <section id="features" className="pt-16 md:pt-20 lg:pt-28">
-        <div className="container">
+        <div className="container px-0 md:px-10 lg:px-20">
           <SectionTitle
             title="My Skills"
             paragraph="As a devoted professional, my proficiency extends across a spectrum of skills and encompasses diverse experiences, enabling me to excel in both skillful execution and project management."

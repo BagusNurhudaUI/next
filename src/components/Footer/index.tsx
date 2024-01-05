@@ -18,6 +18,7 @@ const Footer = () => {
                   {/* linked in */}
                   <a
                     href="https://www.linkedin.com/in/bagusnurhuda/"
+                    target="_blank"
                     aria-label="social-link"
                     className="dark:text-body-color-dark mr-6 text-body-color duration-300 hover:text-primary dark:hover:text-primary"
                   >
@@ -33,6 +34,7 @@ const Footer = () => {
                   {/* github */}
                   <a
                     href="https://github.com/BagusNurhudaUI"
+                    target="_blank"
                     aria-label="social-link"
                     className="dark:text-body-color-dark mr-6 text-body-color duration-300 hover:text-primary dark:hover:text-primary"
                   >
@@ -48,6 +50,7 @@ const Footer = () => {
                   {/* youtube */}
                   <a
                     href="https://www.youtube.com/channel/UCjjZ7G9Miy074O_q2xu6ZnA"
+                    target="_blank"
                     aria-label="social-link"
                     className="dark:text-body-color-dark mr-6 text-body-color duration-300 hover:text-primary dark:hover:text-primary"
                   >
@@ -64,6 +67,7 @@ const Footer = () => {
                   {/* instagram */}
                   <a
                     href="https://instagram.com/bagusnurhuda"
+                    target="_blank"
                     aria-label="social-link"
                     className="dark:text-body-color-dark mr-6 text-body-color duration-300 hover:text-primary dark:hover:text-primary"
                   >
