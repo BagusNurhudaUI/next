@@ -114,7 +114,7 @@ const AboutMe: NextPage<Props> = ({}) => {
                 </p>
                 <div className="flex flex-col gap-10">
                   {dataEducation.map((data, index) => (
-                    <div className="article flex ">
+                    <div className="article flex " key={index}>
                       <div className="relative mr-6">
                         <div
                           className="relative w-[80px] h-[80px] rounded-full z-10
@@ -225,7 +225,7 @@ const AboutMe: NextPage<Props> = ({}) => {
                 <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
                   Connecting with people is something I truly enjoy. To foster
                   meaningful connections and personal growth, I actively engage
-                  with various communities. Here's a glimpse of some
+                  with various communities. Here&apos;s a glimpse of some
                   organizations I&apos;ve been a part of:
                 </p>
                 <ul className="mb-10 list-inside list-disc text-body-color">
