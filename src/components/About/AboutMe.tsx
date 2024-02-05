@@ -1,9 +1,61 @@
+"use client";
 import { NextPage, GetStaticPaths } from "next";
 import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
-import { FaUser } from "react-icons/fa6";
+
+import { useState } from "react";
 import TagButton from "../Blog/TagButton";
 import SharePost from "../Blog/SharePost";
+import { Carousel } from "react-responsive-carousel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./styles.css";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowAltCircleRight } from "@fortawesome/free-regular-svg-icons";
+import { faCircleArrowRight } from "@fortawesome/free-solid-svg-icons/faCircleArrowRight";
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons/faCaretRight";
+import { faCaretLeft } from "@fortawesome/free-solid-svg-icons/faCaretLeft";
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4,
+    slidesToSlide: 4, // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 768 },
+    items: 3,
+    slidesToSlide: 3, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 767, min: 464 },
+    items: 2,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+};
+const sliderImageUrl = [
+  //First image url
+  {
+    url: "https://i2.wp.com/www.geeksaresexy.net/wp-content/uploads/2020/04/movie1.jpg?resize=600%2C892&ssl=1",
+  },
+  {
+    url: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-kids-movies-2020-call-of-the-wild-1579042974.jpg?crop=0.9760858955588091xw:1xh;center,top&resize=480:*",
+  },
+  //Second image url
+  {
+    url: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-movies-for-kids-2020-sonic-the-hedgehog-1571173983.jpg?crop=0.9871668311944719xw:1xh;center,top&resize=480:*",
+  },
+  //Third image url
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQS82ET2bq9oTNwPOL8gqyoLoLfeqJJJWJmKQ&usqp=CAU",
+  },
+
+  //Fourth image url
+
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTdvuww0JDC7nFRxiFL6yFiAxRJgM-1tvJTxA&usqp=CAU",
+  },
+];
 interface Props {}
 
 const checkIcon = (
@@ -14,12 +66,12 @@ const checkIcon = (
 
 const dataEducation = [
   {
-    image: "https://www.dbl.id/uploads/school/64178/102-SMAN_2_KOTA_DEPOK.png",
-    title: "SMAN 2 Kota Depok",
-    role: "Natural Science",
-    time: "2016-2019",
+    image: "https://taplink.st/a/e/b/0/7/a7f3e6.png?1",
+    title: "Bangkit Academy",
+    role: "Could Computing",
+    time: "2022",
     caption:
-      "Actively in organization such OSIS and MPK, Paskibra, Robotic, and Traditions dance",
+      "Selected as 16th best capstone project colaborated with Kitabisa.com and labeled distinctions graduate",
   },
   {
     image:
@@ -30,16 +82,41 @@ const dataEducation = [
     caption: "Actively in Electical Council, Private projects",
   },
   {
-    image: "https://taplink.st/a/e/b/0/7/a7f3e6.png?1",
-    title: "Bangkit Academy",
-    role: "Could Computing",
-    time: "2022",
+    image: "https://www.dbl.id/uploads/school/64178/102-SMAN_2_KOTA_DEPOK.png",
+    title: "SMAN 2 Kota Depok",
+    role: "Natural Science",
+    time: "2016-2019",
     caption:
-      "Selected as 16th best capstone project colaborated with Kitabisa.com and distinction graduates",
+      "Actively in organization such OSIS and MPK, Paskibra, Robotic, and Traditions dance",
   },
 ];
 
+const contentData = [
+  {
+    title: "Kakak Asuh",
+    description:
+      "One of the non-governmental organizations dedicated to empowering children's education in rural areas. The branch I joined is the Depok branch, and I officiate as Vice Headmaster.",
+  },
+  {
+    title: "Kakak Asuh",
+    description:
+      "One of the non-governmental organizations dedicated to empowering children's education in rural areas. The branch I joined is the Depok branch, and I officiate as Vice Headmaster.",
+  },
+  {
+    title: "OSIS",
+    description:
+      "One of the non-governmental organizations dedicated to empowering children's education in rural areas. The branch I joined is the Depok branch, and I officiate as Vice Headmaster.",
+  },
+  {
+    title: "OSIS",
+    description:
+      "One of the non-governmental organizations dedicated to empowering children's education in rural areas. The branch I joined is the Depok branch, and I officiate as Vice Headmaster.",
+  },
+  // Add more content objects for additional indices if needed
+];
+
 const AboutMe: NextPage<Props> = ({}) => {
+  const [index, setIndex] = useState(0);
   const List = ({ text }: any) => (
     <p className="mb-5 flex items-center text-lg font-medium text-body-color">
       <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
@@ -50,10 +127,10 @@ const AboutMe: NextPage<Props> = ({}) => {
   );
 
   return (
-    <section id="about" className="pt-4">
+    <section id="about" className="pt-6 md:pt-4">
       <div className="container">
         <div className=" md:pb-10 lg:pb-16">
-          <div className="-mx-4 flex flex-wrap items-center gap-4 md:gap-0">
+          <div className="-mx-4 flex flex-wrap items-center gap-6 md:gap-0">
             <div className="w-full px-4 md:w-2/5">
               <div
                 className="wow fadeInUp relative mx-auto aspect-[25/24] flex items-center justify-center w-[200px] lg:w-[300px] m-auto "
@@ -68,36 +145,35 @@ const AboutMe: NextPage<Props> = ({}) => {
               </div>
             </div>
             <div className="w-full px-4 md:w-3/5">
-              <SectionTitle
-                title="Bagus Nurhuda"
-                paragraph={`A recent graduate from the 
-                <span class="text-primary dark:text-white">University of Indonesia</span> 
-                with a specialization in computer engineering. My academic journey has equipped me with a strong foundation in 
-                <span class="text-primary dark:text-white">both frontend and backend software development</span>
-                , and I'm particularly enthusiastic about exploring the realms of cloud architecture.
-                <br><br> 
-                
-                I'm interested in software development, including frontend and backend. Sometimes I also learn about cloud computing, and I'm ready to be part of several companies. Feel free to contact me here.`}
-                divClass="wow fadeInUp w-full mb-[44px] mt-[0px] "
-                h2Class="mb-4 text-3xl font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px]"
-                pClass="text-base !leading-relaxed text-body-color md:text-lg"
-              />
-
-              {/* <div className="wow fadeInUp mb-12 lg:mb-0" data-wow-delay=".15s">
-                <div className="mx-[-12px] flex flex-wrap">
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Premium quality" />
-                    <List text="Tailwind CSS" />
-                    <List text="Use for lifetime" />
-                  </div>
-
-                  <div className="w-full px-3 sm:w-1/2 lg:w-full xl:w-1/2">
-                    <List text="Next.js" />
-                    <List text="Rich documentation" />
-                    <List text="Developer friendly" />
-                  </div>
-                </div>
-              </div> */}
+              <div
+                className="wow fadeInUp w-full mb-[44px] mt-[0px] "
+                data-wow-delay=".1s"
+              >
+                <h2 className="mb-4 text-3xl font-bold !leading-tight text-black dark:text-white sm:text-4xl md:text-[45px] text-center md:text-start">
+                  Bagus Nurhuda
+                </h2>
+                <p className="text-base leading-relaxed text-body-color md:text-lg ">
+                  A recent graduate from the
+                  <span className="text-primary dark:text-white">
+                    {" "}
+                    University of Indonesia{" "}
+                  </span>
+                  with a specialization in computer engineering. My academic
+                  journey has equipped me with a strong foundation in
+                  <span className="text-primary dark:text-white">
+                    {" "}
+                    both frontend and backend software development
+                  </span>
+                  , and I'm particularly enthusiastic about exploring the realms
+                  of cloud architecture.
+                  <br />
+                  <br />
+                  I'm interested in software development, including frontend and
+                  backend. Sometimes I also learn about cloud computing, and I'm
+                  ready to be part of several companies. Feel free to contact me
+                  here.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -105,7 +181,7 @@ const AboutMe: NextPage<Props> = ({}) => {
         <div className="flex flex-wrap justify-center mb-20 gap-20 lg:gap-0">
           <div className="w-full md:px-6 lg:w-1/2 ">
             <div className="max-w-4/5">
-              <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
+              <h2 className="mb-4 md:mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight text-center md:text-start">
                 Education
               </h2>
               <div className="flex flex-col space-y-6">
@@ -217,7 +293,7 @@ const AboutMe: NextPage<Props> = ({}) => {
 
           <div className="w-full md:px-6 lg:w-1/2 ">
             <div className="max-w-4/5">
-              <h2 className="mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight">
+              <h2 className="mb-4 md:mb-8 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight text-center md:text-start">
                 Organization
               </h2>
 
@@ -228,18 +304,112 @@ const AboutMe: NextPage<Props> = ({}) => {
                   with various communities. Here&apos;s a glimpse of some
                   organizations I&apos;ve been a part of:
                 </p>
-                <ul className="mb-10 list-inside list-disc text-body-color">
-                  <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                    Student Council (OSIS)
-                  </li>
-                  <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                    Kakak Asuh
-                  </li>
-                  <li className="mb-2 text-base font-medium text-body-color sm:text-lg lg:text-base xl:text-lg">
-                    Electrical Engineering Student Association (Ikatan Mahasiswa
-                    Elektro)
-                  </li>
-                </ul>
+                {/* carousel */}
+                <Carousel
+                  showArrows={true}
+                  autoFocus={true}
+                  showStatus={false}
+                  showThumbs={false}
+                  showIndicators={false}
+                  infiniteLoop={true}
+                  className="md:mx-20"
+                  renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                    hasPrev && (
+                      <button
+                        type="button"
+                        onClick={onClickHandler}
+                        title={label}
+                        style={{
+                          left: 15,
+                          position: "absolute",
+                          zIndex: 2,
+                          top: "calc(50% - 15px)",
+                          width: 30,
+                          height: 30,
+                          cursor: "pointer",
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          icon={faCaretLeft}
+                          style={{
+                            width: "30px",
+                            height: "30px",
+                            color: "white",
+                          }}
+                        />
+                      </button>
+                    )
+                  }
+                  renderArrowNext={(onClickHandler, hasNext, label) =>
+                    hasNext && (
+                      <button
+                        type="button"
+                        onClick={onClickHandler}
+                        title={label}
+                        style={{
+                          right: 15,
+                          position: "absolute",
+                          zIndex: 999,
+                          top: "calc(50% - 15px)",
+                          width: 30,
+                          height: 30,
+                          cursor: "pointer",
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          icon={faCaretRight}
+                          style={{
+                            width: "30px",
+                            height: "30px",
+                            color: "white",
+                          }}
+                        />
+                      </button>
+                    )
+                  }
+                  onChange={(e) => {
+                    console.log(e);
+                    setIndex(e);
+                  }}
+                >
+                  <div>
+                    <img src="/images/about/carousel/kakak-asuh-2.jpg" />
+                  </div>
+                  <div>
+                    <img src="/images/about/carousel/kakak-asuh-1.jpg" />
+                  </div>
+                  <div>
+                    <img src="/images/about/carousel/kakak-asuh-2.jpg" />
+                  </div>
+                  <div>
+                    <img src="/images/about/carousel/kakak-asuh-1.jpg" />
+                  </div>
+                  <div className="flex justify-center items-center">
+                    <video
+                      controls
+                      width="100%"
+                      style={{ alignSelf: "center" }}
+                    >
+                      <source
+                        src="/images/about/carousel/video-kakak-asuh.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </Carousel>
+                {contentData[index] && (
+                  <div>
+                    <h2 className="text-base text-xl font-semibold text-center">
+                      {contentData[index].title}
+                    </h2>
+                    {contentData[index].description && (
+                      <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed lg:text-base lg:leading-relaxed xl:text-lg xl:leading-relaxed">
+                        {contentData[index].description}
+                      </p>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>

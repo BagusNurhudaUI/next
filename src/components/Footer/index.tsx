@@ -88,8 +88,8 @@ const Footer = () => {
                   <p className="font-bold text-xl">BAGUS NURHUDA</p>
                 </Link>
                 <p className="dark:text-body-color-dark mb-9 text-base leading-relaxed text-body-color">
-                  A learner who focuses on developing themselves can often
-                  become good or even better.
+                  Bagus Nurhuda's personal website - creating the footstep of
+                  working in technology and blogs. Welcome!.
                 </p>
               </div>
             </div>

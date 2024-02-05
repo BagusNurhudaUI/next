@@ -30,8 +30,16 @@ const Contact = () => {
       setIsLoading(false);
 
       const data = await response.json();
-
-      alert(data?.message);
+      if (!response.ok) {
+        alert(`Gagal mengirim email : ${data.message}`);
+      } else {
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+        alert(data.message);
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -68,6 +76,8 @@ const Contact = () => {
                         placeholder="Enter your name"
                         name="name"
                         className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                        value={formData.name}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -84,6 +94,8 @@ const Contact = () => {
                         name="email"
                         placeholder="Enter your email"
                         className="border-stroke dark:text-body-color-dark dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                        value={formData.email}
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -100,6 +112,8 @@ const Contact = () => {
                         rows={5}
                         placeholder="Enter your Message"
                         className="border-stroke dark:text-body-color-dark dark:shadow-two w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                        value={formData.message}
+                        onChange={handleChange}
                       ></textarea>
                     </div>
                   </div>

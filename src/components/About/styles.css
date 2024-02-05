@@ -1,0 +1,13 @@
+.carousel .thumb img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.carousel .slide img {
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

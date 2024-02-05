@@ -13,6 +13,9 @@ const gmailPass = process.env.GMAILPASS;
 export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const { name, email, message } = await req.json();
+    if (email === "" || name === "" || message === "") {
+      throw new Error("Isi semua form dengan lengkap");
+    }
 
     // Implement your email sending logic here
     // console.log("Form Data neww:", { name, email, message });
@@ -37,7 +40,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     };
 
     const result = await transporter.sendMail(options);
-    // console.log({ result });
+    console.log({ result });
 
     // Respond to the client
     return NextResponse.json(
